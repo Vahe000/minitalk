@@ -1,44 +1,87 @@
-Minitalk Project
+<p align="center">
+  <img src="https://github.com/jotavare/jotavare/blob/main/42/banner/new/42_minitalk_banner_new.png">
+</p>
 
-The minitalk project is a client-server communication program for 42 School's curriculum.
+<p align="center">
+	<a href="#about">About</a> •
+	<a href="#how-to-use">How to use</a> •
+	<a href="#mandatory">Mandatory</a> •
+	<a href="#bonus">Bonus</a> •
+	<a href="#norminette">Norminette</a> •
+	<a href="#license">License</a>
+</p>
 
-Description
+## ABOUT
+Minitalk is a server/client system that uses UNIX signals for communication. The server displays its PID and receives decrypted signals as characters, while the client encrypts messages and sends true/false signals using SIGUSR1 or SIGUSR2 to the server's PID.
 
-This project requires you to create a client-server communication program using signals in Unix-based systems. The server must be able to receive a string of characters from the client and print it to standard output.
+<a href="https://github.com/jotavare/minitalk/blob/master/subject/en_subject_minitalk.pdf">Click here</a> for the subject of this project.
 
-The client must be able to send a string of characters to the server, which will be printed to standard output by the server. The client and server communicate using signals, with the client sending each character in the string as a separate signal.
+## HOW TO USE
+#### COMPILATION AND EXECUTION
+#### 1º - Clone the repository
+```bash
+git@github.com:Vahe000/minitalk.git
+```
 
-Installation
+#### 2º - Enter the project folder and run `make`
+```bash
+cd minitalk
+make
+```
 
-To install and run the minitalk project, follow these steps:
+#### 3º - Run server or server_bonus and copy its PID
+```bash
+./server
+./server_bonus
+```
 
-Clone the repository to your local machine.
+#### 4º - Open another terminal, run client or client_bonus, paste the PID and write a message
+```bash
+./client [SERVER PID] [MESSAGE]
+./client_bonus [SERVER PID] [MESSAGE] [EMOTE]
+```
 
-Run the make command to compile the project.
+#### MAKEFILE RULES
 
-Run the server with the ./server command.
+`make` - Compile minitalk **mandatory** files.
 
-Run the client with the ./client [server_pid] [string] command, where [server_pid] is the process ID of the server and [string] is the string you want to 
-send.
+`make bonus` - Compile minitalk **bonus** files.
 
-Usage
+`make all` - Compile **mandatory** + **bonus** files.
 
-The minitalk project is designed to demonstrate client-server communication using signals in Unix-based systems. To use the project, follow these steps:
+`make clean` - Delete all .o (object files) files.
 
-Start the server by running the ./server command in a terminal window.
+`make fclean` - Delete all .o (object files) and .a (executable) files.
 
-In a separate terminal window, run the ./client [server_pid] [string] command, where [server_pid] is the process ID of the server (which is printed by 
+`make re` - Use rules `fclean` + `all`.
 
-the server when it starts up) and [string] is the string you want to send.
+## MANDATORY
+- [x] Produce server and client executables.
+- [x] Client must communicate a string passed as a parameter to the server (referenced by its process ID) and display it.
+- [x] Use `SIGUSR1` and `SIGUSR2` signals only.
 
-The client will send each character in the string to the server as a separate signal.
+## BONUS
+- [x] Add reception acknowledgement system.
+- [x] Support Unicode characters.
 
-The server will receive the signals and print the string to standard output.
+## NORMINETTE
+At 42 School, it is expected that almost every project is written in accordance with the Norm, which is the coding standard of the school.
 
-Contributors
+```
+- No for, do...while, switch, case, goto, ternary operators and variable-length arrays are allowed
+- Each function must be a maximum of 25 lines, not counting the function's curly brackets
+- Each line must be at most 80 columns wide, comments included
+- A function can take 4 named parameters maximum
+- No assigns and declarations in the same line (unless static)
+- You can't declare more than 5 variables per function
+- ...
+```
 
-This project was completed by [your name] as part of the curriculum at 42 School.
+* [42 Norms](https://github.com/jotavare/jotavare/blob/main/42/pdf/en_norm.pdf) - Information about 42 code norms. `PDF`
+* [Norminette](https://github.com/42School/norminette) - Tool by 42, to respect the code norm. `GitHub`
+* [42 Header](https://github.com/42Paris/42header) - 42 header for Vim. `GitHub`
 
-License
-
-This project is licensed under the MIT License. See the LICENSE file for more information.
+## LICENSE
+<p>
+This work is published under the terms of <a href="https://github.com/jotavare/jotavare/blob/main/LICENSE">42 Unlicense</a>.
+</p>
